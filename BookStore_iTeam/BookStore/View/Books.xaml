@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="BookStore.View.Books"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStore.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             >
+    <Grid x:Name="win">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock FontWeight="Bold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">Quản lý thông tin sách</TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1" x:Name="Grid_info">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="tbMaSach" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Mã Sách" IsEnabled="False"
+                     Text="{Binding SelectedItem.MaSach, ElementName=dataBooks}"/>
+            <TextBox x:Name="tbTenSach" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Tên Sách" IsEnabled="False"
+                     Text="{Binding SelectedItem.TenSach, ElementName=dataBooks}"/>
+            <TextBox x:Name="tbTacGia" Grid.Row="2" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Tác Giả" IsEnabled="False"
+                     Text="{Binding SelectedItem.TacGia, ElementName=dataBooks}"/>
+            <ComboBox x:Name="cbTheLoai" Grid.Row="0" Grid.Column="2"  IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="10,4"
+                      materialDesign:HintAssist.Hint="Thể Loại" IsEnabled="False"
+                      ItemsSource="{Binding TheLoai}"
+                      DisplayMemberPath="TenTheLoai"
+                      IsReadOnly="True"
+                      Text="{Binding SelectedItem.THELOAI.TenTheLoai, ElementName=dataBooks}"
+                      SelectedValue="{Binding SelectedItem.THELOAI, ElementName=dataBooks}"/>
+            <ComboBox x:Name="cbNhaXuatBan" Grid.Row="1" Grid.Column="2"  IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="10,4"
+                      materialDesign:HintAssist.Hint="Nhà Xuất Bản" IsEnabled="False"
+                      ItemsSource="{Binding NhaXuatBan}"
+                      DisplayMemberPath="TenNhaXuatBan"
+                      IsReadOnly="True"
+                      Text="{Binding SelectedItem.NHAXUATBAN.TenNhaXuatBan, ElementName=dataBooks}"
+                      SelectedValue="{Binding SelectedItem.NHAXUATBAN, ElementName=dataBooks}"/>
+            
+            <Button Grid.Column="3" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    Margin="8 4 8 0" HorizontalAlignment="Left"
+                    ToolTip="Thêm sách"
+                    Command="{Binding AddCommand}"
+                    CommandParameter="{Binding Children,ElementName=win}">
+                <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
+            </Button>
+            <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    Margin="8 4 8 0" HorizontalAlignment="Left"
+                    ToolTip="Lưu sách"
+                    Command="{Binding SaveCommand}"
+                    CommandParameter="{Binding Children,ElementName=Grid_info}">
+                <materialDesign:PackIcon Kind="ContentSave" Height="24" Width="24" />
+            </Button>
+            <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    Margin="8 4 8 0" HorizontalAlignment="Left"
+                    ToolTip="Chỉnh sửa"
+                    Command="{Binding UpdateCommand}"
+                    CommandParameter="{Binding Children,ElementName=Grid_info}">
+                <materialDesign:PackIcon Kind="LeadPencil" Height="24" Width="24" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,20,5,10">
+            <DataGrid x:Name="dataBooks" ItemsSource="{Binding Sach}" AutoGenerateColumns="false" IsReadOnly="True" IsEnabled="{Binding IsEnable}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xóa sách"
+                                        Command="{Binding DataContext.DeleteCommand,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" 
+                                        CommandParameter="{Binding}"
+                                        Height="25" Width="25">
+                                    <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding MaSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã"/>
+                    <DataGridTextColumn Binding="{Binding TenSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên Sách"/>
+                    <DataGridTextColumn Binding="{Binding TacGia, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tác Giả"/>
+                    <DataGridTextColumn Binding="{Binding THELOAI.TenTheLoai, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Thể Loại"/>
+                    <DataGridTextColumn Binding="{Binding NHAXUATBAN.TenNhaXuatBan, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Nhà Xuất Bản"/>
+                    <DataGridTextColumn Binding="{Binding DonGia, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Đơn Giá"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

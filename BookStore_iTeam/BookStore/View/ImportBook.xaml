@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="BookStore.View.ImportBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStore.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Loaded="DataLoaded"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                            Margin="0 4 8 4" HorizontalAlignment="Left"
+                            ToolTip="Tạo phiếu nhập mới"
+                            Click="btnAdd">
+                        <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                            Margin="0 4 8 4" HorizontalAlignment="Left"
+                            ToolTip="Nhập sách"
+                            Click="btnUpdate">
+                        <materialDesign:PackIcon Kind="Import" Height="24" Width="24" />
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                            Margin="0 4 0 4" HorizontalAlignment="Left"
+                            ToolTip="Lưu phiếu nhập"
+                            Click="btnSave">
+                        <materialDesign:PackIcon Kind="ContentSave" Height="24" Width="24" />
+                    </Button>
+                    
+                </StackPanel>
+
+                <DataGrid x:Name="dataPhieuNhap" ItemsSource="{Binding}" AutoGenerateColumns="False" IsEnabled="False"
+                          SelectionChanged="dataPhieuNhap_SelectionChanged"
+                          RowEditEnding="dataPhieuNhap_RowEditEnding" 
+                          AddingNewItem="dataPhieuNhap_AddingNewItem" 
+                          BeginningEdit="dataPhieuNhap_BeginningEdit">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xóa sách nhập" Click="btnDelete" Height="25" Width="25">
+                                        <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Binding="{Binding SoPNS, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã"/>
+                        <DataGridTextColumn Binding="{Binding NgayNhap, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Ngày nhập" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding TongTien, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tổng tiền" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid x:Name="pnlBooks" Grid.Column="2" IsEnabled="False">
+                <DataGrid x:Name="dataBooks" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding MaSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã"/>
+                        <DataGridTextColumn Binding="{Binding TenSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên Sách"/>
+                        <DataGridTextColumn Binding="{Binding TacGia, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tác Giả"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+        </Grid>
+
+        <Grid x:Name="pnlPhieuNhap" Grid.Row="2" IsEnabled="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1">
+                <TextBox x:Name="tbSoLuong" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Số lượng nhập" IsEnabled="{Binding SelectedItem, ElementName=dataBooks}"/>
+                <TextBox x:Name="tbDonGia" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Giá nhập" IsEnabled="{Binding SelectedItem, ElementName=dataBooks}"/>
+                <Button Content="Thêm Sách" Click="btnAddBook" Margin="0,10,0,0"/>
+            </StackPanel>
+            <DataGrid x:Name="dataCT" Grid.Column="0" Margin="0,0,10,0" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xóa sách nhập" Click="btnDeleteBook" Height="25" Width="25">
+                                    <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding MaSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã"/>
+                    <DataGridTextColumn Binding="{Binding SACH.TenSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên Sách"/>
+                    <DataGridTextColumn Binding="{Binding SoLuongNhap, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số lượng"/>
+                    <DataGridTextColumn Binding="{Binding DonGiaNhap, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Đơn giá"/>
+                    <DataGridTextColumn Binding="{Binding ThanhTien, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Thành tiền"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

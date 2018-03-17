@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="BookStore.View.Customers"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStore.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="Customer_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock FontWeight="Bold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">Quản lý khách hàng</TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="tbMaKH" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Mã Khách Hàng" IsEnabled="False"
+                     Text="{Binding SelectedItem.MaKhachHang, ElementName=dataCustomers}"/>
+            <TextBox x:Name="tbTenKH" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Tên Khách Hàng" IsEnabled="False"
+                     Text="{Binding SelectedItem.TenKhachHang, ElementName=dataCustomers}"/>
+            <TextBox x:Name="tbDiaChi" Grid.Row="2" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Địa chỉ" IsEnabled="False"
+                     Text="{Binding SelectedItem.DiaChi, ElementName=dataCustomers}"/>
+            <TextBox x:Name="tbSDT" Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Số điện thoại" IsEnabled="False"
+                     Text="{Binding SelectedItem.SDT, ElementName=dataCustomers}"/>
+            <TextBox x:Name="tbEmail" Grid.Row="1" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Email" IsEnabled="False"
+                     Text="{Binding SelectedItem.Email, ElementName=dataCustomers}"/>
+            <TextBox x:Name="tbTienNo" Grid.Row="2" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,4"
+                     materialDesign:HintAssist.Hint="Tiền Nợ" IsEnabled="False"
+                     Text="{Binding SelectedItem.SoTienNo, ElementName=dataCustomers}"/>
+
+            <Button Grid.Column="3" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    Margin="8 4 8 0" HorizontalAlignment="Left"
+                    ToolTip="Thêm khách hàng"
+                    Click="btnAdd">
+                <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
+            </Button>
+            <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    Margin="8 4 8 0" HorizontalAlignment="Left"
+                    ToolTip="Lưu khách hàng"
+                    Click="btnSave">
+                <materialDesign:PackIcon Kind="ContentSave" Height="24" Width="24" />
+            </Button>
+            <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    Margin="8 4 8 0" HorizontalAlignment="Left"
+                    ToolTip="Chỉnh sửa"
+                    Click="btnUpdate">
+                <materialDesign:PackIcon Kind="LeadPencil" Height="24" Width="24" />
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,20,5,10">
+            <DataGrid x:Name="dataCustomers" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xóa khách hàng" Click="btnDelete" Height="25" Width="25">
+                                    <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding MaKhachHang, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã"/>
+                    <DataGridTextColumn Binding="{Binding TenKhachHang, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên khách hàng"/>
+                    <DataGridTextColumn Binding="{Binding DiaChi, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Địa chỉ"/>
+                    <DataGridTextColumn Binding="{Binding SDT, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số ĐT"/>
+                    <DataGridTextColumn Binding="{Binding Email, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Email"/>
+                    <DataGridTextColumn Binding="{Binding SoTienNo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tiền Nợ"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>
