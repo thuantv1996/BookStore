@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.09375in</Width>
+              <Width>0.77083in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.10764in</Width>
+              <Width>1.49306in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98958in</Width>
+              <Width>0.64583in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.03125in</Width>
+              <Width>0.70486in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3125in</Width>
+              <Width>0.94792in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.44792in</Width>
+              <Width>1.125in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -435,9 +435,9 @@
           </Filter>
         </Filters>
         <Top>1.74875in</Top>
-        <Left>0.70361in</Left>
+        <Left>0.40153in</Left>
         <Height>0.5in</Height>
-        <Width>7.98264in</Width>
+        <Width>5.6875in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -465,7 +465,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox29</rd:DefaultName>
         <Top>0.49875in</Top>
-        <Left>2.93625in</Left>
+        <Left>1.68625in</Left>
         <Height>0.34375in</Height>
         <Width>3.10417in</Width>
         <ZIndex>1</ZIndex>
@@ -479,25 +479,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox30">
+      <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Tháng: </Value>
+                <Value>="Tháng: " &amp; Parameters!Month.Value &amp; " Năm: " &amp; Parameters!Year.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>1.08208in</Top>
-        <Left>3.25917in</Left>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.13417in</Top>
+        <Left>2.03in</Left>
         <Height>0.25in</Height>
-        <Width>0.47917in</Width>
+        <Width>2.48958in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -509,101 +511,11 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox31">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!Month.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox31</rd:DefaultName>
-        <Top>1.08208in</Top>
-        <Left>3.78in</Left>
-        <Height>0.25in</Height>
-        <Width>0.47917in</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox32">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Năm: </Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox32</rd:DefaultName>
-        <Top>1.08208in</Top>
-        <Left>4.32861in</Left>
-        <Height>0.25in</Height>
-        <Width>0.4375in</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox33">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!Year.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox33</rd:DefaultName>
-        <Top>1.08208in</Top>
-        <Left>4.83556in</Left>
-        <Height>0.25in</Height>
-        <Width>1in</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>4.34375in</Height>
+    <Height>8.3in</Height>
     <Style />
   </Body>
-  <Width>9.25917in</Width>
+  <Width>6.53333in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

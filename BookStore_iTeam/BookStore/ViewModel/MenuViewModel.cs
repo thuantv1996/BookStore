@@ -19,7 +19,8 @@ namespace BookStore.ViewModel
         public ICommand FindCommand { get; set; }
         public ICommand SearchCustomerCommand { get; set; }
         public ICommand SettingCommand { get; set; }
-        public ICommand InventoyrReportCommand { get; set; }
+        public ICommand InventoryReportCommand { get; set; }
+        public ICommand IndebtednessReportCommand { get; set; }
         public MenuViewModel()
         {
             BookCommand = new RelayCommand<object>((p) =>
@@ -58,10 +59,15 @@ namespace BookStore.ViewModel
             {
                 Setting();
             }, true);
-            InventoyrReportCommand = new RelayCommand<object>((p) =>
+            InventoryReportCommand = new RelayCommand<object>((p) =>
             {
                 InventoryReport();
             }, true);
+
+            IndebtednessReportCommand = new RelayCommand<object>((p) =>
+            {
+                IndebtednessReport();
+            },true);
         }
         private void Books()
         {
@@ -110,6 +116,10 @@ namespace BookStore.ViewModel
         private void InventoryReport()
         {
             Switcher.Switch(new InventoryReport());
+        }
+        private void IndebtednessReport()
+        {
+            Switcher.Switch(new IndebtednessReport());
         }
     }
 }

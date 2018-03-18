@@ -50,6 +50,8 @@ namespace BookStore.Model {
         
         private InventoryReportDataTable tableInventoryReport;
         
+        private IndebtednessReportDataTable tableIndebtednessReport;
+        
         private global::System.Data.DataRelation relationFK_BAOCAOCONGNO_KHACHHANG;
         
         private global::System.Data.DataRelation relationFK_BAOCAOTON_SACH;
@@ -71,6 +73,8 @@ namespace BookStore.Model {
         private global::System.Data.DataRelation relationFK_SACH_THELOAI;
         
         private global::System.Data.DataRelation relationFK_BAOCAOTON_SACH1;
+        
+        private global::System.Data.DataRelation relationFK_BAOCAOCONGNO_KHACHHANG1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -138,6 +142,9 @@ namespace BookStore.Model {
                 }
                 if ((ds.Tables["InventoryReport"] != null)) {
                     base.Tables.Add(new InventoryReportDataTable(ds.Tables["InventoryReport"]));
+                }
+                if ((ds.Tables["IndebtednessReport"] != null)) {
+                    base.Tables.Add(new IndebtednessReportDataTable(ds.Tables["IndebtednessReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -289,6 +296,16 @@ namespace BookStore.Model {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public IndebtednessReportDataTable IndebtednessReport {
+            get {
+                return this.tableIndebtednessReport;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -392,6 +409,9 @@ namespace BookStore.Model {
                 }
                 if ((ds.Tables["InventoryReport"] != null)) {
                     base.Tables.Add(new InventoryReportDataTable(ds.Tables["InventoryReport"]));
+                }
+                if ((ds.Tables["IndebtednessReport"] != null)) {
+                    base.Tables.Add(new IndebtednessReportDataTable(ds.Tables["IndebtednessReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -504,6 +524,12 @@ namespace BookStore.Model {
                     this.tableInventoryReport.InitVars();
                 }
             }
+            this.tableIndebtednessReport = ((IndebtednessReportDataTable)(base.Tables["IndebtednessReport"]));
+            if ((initTable == true)) {
+                if ((this.tableIndebtednessReport != null)) {
+                    this.tableIndebtednessReport.InitVars();
+                }
+            }
             this.relationFK_BAOCAOCONGNO_KHACHHANG = this.Relations["FK_BAOCAOCONGNO_KHACHHANG"];
             this.relationFK_BAOCAOTON_SACH = this.Relations["FK_BAOCAOTON_SACH"];
             this.relationFK_CT_HOADON_HOADON = this.Relations["FK_CT_HOADON_HOADON"];
@@ -515,6 +541,7 @@ namespace BookStore.Model {
             this.relationFK_SACH_NhaXuatBan = this.Relations["FK_SACH_NhaXuatBan"];
             this.relationFK_SACH_THELOAI = this.Relations["FK_SACH_THELOAI"];
             this.relationFK_BAOCAOTON_SACH1 = this.Relations["FK_BAOCAOTON_SACH1"];
+            this.relationFK_BAOCAOCONGNO_KHACHHANG1 = this.Relations["FK_BAOCAOCONGNO_KHACHHANG1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -551,6 +578,8 @@ namespace BookStore.Model {
             base.Tables.Add(this.tableTHELOAI);
             this.tableInventoryReport = new InventoryReportDataTable();
             base.Tables.Add(this.tableInventoryReport);
+            this.tableIndebtednessReport = new IndebtednessReportDataTable();
+            base.Tables.Add(this.tableIndebtednessReport);
             this.relationFK_BAOCAOCONGNO_KHACHHANG = new global::System.Data.DataRelation("FK_BAOCAOCONGNO_KHACHHANG", new global::System.Data.DataColumn[] {
                         this.tableKHACHHANG.MaKhachHangColumn}, new global::System.Data.DataColumn[] {
                         this.tableBAOCAOCONGNO.MaKhachHangColumn}, false);
@@ -595,6 +624,10 @@ namespace BookStore.Model {
                         this.tableSACH.MaSachColumn}, new global::System.Data.DataColumn[] {
                         this.tableInventoryReport.MaSachColumn}, false);
             this.Relations.Add(this.relationFK_BAOCAOTON_SACH1);
+            this.relationFK_BAOCAOCONGNO_KHACHHANG1 = new global::System.Data.DataRelation("FK_BAOCAOCONGNO_KHACHHANG1", new global::System.Data.DataColumn[] {
+                        this.tableKHACHHANG.MaKhachHangColumn}, new global::System.Data.DataColumn[] {
+                        this.tableIndebtednessReport.MaKhachHangColumn}, false);
+            this.Relations.Add(this.relationFK_BAOCAOCONGNO_KHACHHANG1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -672,6 +705,12 @@ namespace BookStore.Model {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeInventoryReport() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeIndebtednessReport() {
             return false;
         }
         
@@ -768,6 +807,9 @@ namespace BookStore.Model {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void InventoryReportRowChangeEventHandler(object sender, InventoryReportRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void IndebtednessReportRowChangeEventHandler(object sender, IndebtednessReportRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4979,6 +5021,436 @@ namespace BookStore.Model {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class IndebtednessReportDataTable : global::System.Data.TypedTableBase<IndebtednessReportRow> {
+            
+            private global::System.Data.DataColumn columnMaKhachHang;
+            
+            private global::System.Data.DataColumn columnTenKhachHang;
+            
+            private global::System.Data.DataColumn columnDiaChi;
+            
+            private global::System.Data.DataColumn columnSDT;
+            
+            private global::System.Data.DataColumn columnEmail;
+            
+            private global::System.Data.DataColumn columnSoTienNo;
+            
+            private global::System.Data.DataColumn columnMaKhachHang1;
+            
+            private global::System.Data.DataColumn columnThang;
+            
+            private global::System.Data.DataColumn columnNam;
+            
+            private global::System.Data.DataColumn columnNoDau;
+            
+            private global::System.Data.DataColumn columnNoCuoi;
+            
+            private global::System.Data.DataColumn columnPhatSinh;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportDataTable() {
+                this.TableName = "IndebtednessReport";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal IndebtednessReportDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected IndebtednessReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MaKhachHangColumn {
+                get {
+                    return this.columnMaKhachHang;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TenKhachHangColumn {
+                get {
+                    return this.columnTenKhachHang;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DiaChiColumn {
+                get {
+                    return this.columnDiaChi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SDTColumn {
+                get {
+                    return this.columnSDT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EmailColumn {
+                get {
+                    return this.columnEmail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SoTienNoColumn {
+                get {
+                    return this.columnSoTienNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MaKhachHang1Column {
+                get {
+                    return this.columnMaKhachHang1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ThangColumn {
+                get {
+                    return this.columnThang;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NamColumn {
+                get {
+                    return this.columnNam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NoDauColumn {
+                get {
+                    return this.columnNoDau;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NoCuoiColumn {
+                get {
+                    return this.columnNoCuoi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PhatSinhColumn {
+                get {
+                    return this.columnPhatSinh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportRow this[int index] {
+                get {
+                    return ((IndebtednessReportRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event IndebtednessReportRowChangeEventHandler IndebtednessReportRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event IndebtednessReportRowChangeEventHandler IndebtednessReportRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event IndebtednessReportRowChangeEventHandler IndebtednessReportRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event IndebtednessReportRowChangeEventHandler IndebtednessReportRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddIndebtednessReportRow(IndebtednessReportRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportRow AddIndebtednessReportRow(KHACHHANGRow parentKHACHHANGRowByFK_BAOCAOCONGNO_KHACHHANG1, string TenKhachHang, string DiaChi, string SDT, string Email, int SoTienNo, int MaKhachHang1, int Thang, int Nam, int NoDau, int NoCuoi, int PhatSinh) {
+                IndebtednessReportRow rowIndebtednessReportRow = ((IndebtednessReportRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        TenKhachHang,
+                        DiaChi,
+                        SDT,
+                        Email,
+                        SoTienNo,
+                        MaKhachHang1,
+                        Thang,
+                        Nam,
+                        NoDau,
+                        NoCuoi,
+                        PhatSinh};
+                if ((parentKHACHHANGRowByFK_BAOCAOCONGNO_KHACHHANG1 != null)) {
+                    columnValuesArray[0] = parentKHACHHANGRowByFK_BAOCAOCONGNO_KHACHHANG1[0];
+                }
+                rowIndebtednessReportRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowIndebtednessReportRow);
+                return rowIndebtednessReportRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportRow FindByMaKhachHangMaKhachHang1ThangNam(int MaKhachHang, int MaKhachHang1, int Thang, int Nam) {
+                return ((IndebtednessReportRow)(this.Rows.Find(new object[] {
+                            MaKhachHang,
+                            MaKhachHang1,
+                            Thang,
+                            Nam})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                IndebtednessReportDataTable cln = ((IndebtednessReportDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new IndebtednessReportDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnMaKhachHang = base.Columns["MaKhachHang"];
+                this.columnTenKhachHang = base.Columns["TenKhachHang"];
+                this.columnDiaChi = base.Columns["DiaChi"];
+                this.columnSDT = base.Columns["SDT"];
+                this.columnEmail = base.Columns["Email"];
+                this.columnSoTienNo = base.Columns["SoTienNo"];
+                this.columnMaKhachHang1 = base.Columns["MaKhachHang1"];
+                this.columnThang = base.Columns["Thang"];
+                this.columnNam = base.Columns["Nam"];
+                this.columnNoDau = base.Columns["NoDau"];
+                this.columnNoCuoi = base.Columns["NoCuoi"];
+                this.columnPhatSinh = base.Columns["PhatSinh"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnMaKhachHang = new global::System.Data.DataColumn("MaKhachHang", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaKhachHang);
+                this.columnTenKhachHang = new global::System.Data.DataColumn("TenKhachHang", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTenKhachHang);
+                this.columnDiaChi = new global::System.Data.DataColumn("DiaChi", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiaChi);
+                this.columnSDT = new global::System.Data.DataColumn("SDT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSDT);
+                this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmail);
+                this.columnSoTienNo = new global::System.Data.DataColumn("SoTienNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSoTienNo);
+                this.columnMaKhachHang1 = new global::System.Data.DataColumn("MaKhachHang1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaKhachHang1);
+                this.columnThang = new global::System.Data.DataColumn("Thang", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnThang);
+                this.columnNam = new global::System.Data.DataColumn("Nam", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNam);
+                this.columnNoDau = new global::System.Data.DataColumn("NoDau", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoDau);
+                this.columnNoCuoi = new global::System.Data.DataColumn("NoCuoi", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoCuoi);
+                this.columnPhatSinh = new global::System.Data.DataColumn("PhatSinh", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhatSinh);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnMaKhachHang,
+                                this.columnMaKhachHang1,
+                                this.columnThang,
+                                this.columnNam}, true));
+                this.columnMaKhachHang.AllowDBNull = false;
+                this.columnTenKhachHang.MaxLength = 50;
+                this.columnDiaChi.MaxLength = 50;
+                this.columnSDT.AllowDBNull = false;
+                this.columnSDT.MaxLength = 50;
+                this.columnEmail.MaxLength = 50;
+                this.columnMaKhachHang1.AllowDBNull = false;
+                this.columnThang.AllowDBNull = false;
+                this.columnNam.AllowDBNull = false;
+                this.columnNoDau.AllowDBNull = false;
+                this.columnNoCuoi.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportRow NewIndebtednessReportRow() {
+                return ((IndebtednessReportRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new IndebtednessReportRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(IndebtednessReportRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.IndebtednessReportRowChanged != null)) {
+                    this.IndebtednessReportRowChanged(this, new IndebtednessReportRowChangeEvent(((IndebtednessReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.IndebtednessReportRowChanging != null)) {
+                    this.IndebtednessReportRowChanging(this, new IndebtednessReportRowChangeEvent(((IndebtednessReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.IndebtednessReportRowDeleted != null)) {
+                    this.IndebtednessReportRowDeleted(this, new IndebtednessReportRowChangeEvent(((IndebtednessReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.IndebtednessReportRowDeleting != null)) {
+                    this.IndebtednessReportRowDeleting(this, new IndebtednessReportRowChangeEvent(((IndebtednessReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveIndebtednessReportRow(IndebtednessReportRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                QuanLySachDataSet ds = new QuanLySachDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "IndebtednessReportDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class BAOCAOCONGNORow : global::System.Data.DataRow {
@@ -5673,6 +6145,17 @@ namespace BookStore.Model {
                 }
                 else {
                     return ((PHIEUTHUTIENRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PHIEUTHUTIEN_KHACHHANG"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportRow[] GetIndebtednessReportRows() {
+                if ((this.Table.ChildRelations["FK_BAOCAOCONGNO_KHACHHANG1"] == null)) {
+                    return new IndebtednessReportRow[0];
+                }
+                else {
+                    return ((IndebtednessReportRow[])(base.GetChildRows(this.Table.ChildRelations["FK_BAOCAOCONGNO_KHACHHANG1"])));
                 }
             }
         }
@@ -6453,6 +6936,249 @@ namespace BookStore.Model {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class IndebtednessReportRow : global::System.Data.DataRow {
+            
+            private IndebtednessReportDataTable tableIndebtednessReport;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal IndebtednessReportRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableIndebtednessReport = ((IndebtednessReportDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int MaKhachHang {
+                get {
+                    return ((int)(this[this.tableIndebtednessReport.MaKhachHangColumn]));
+                }
+                set {
+                    this[this.tableIndebtednessReport.MaKhachHangColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TenKhachHang {
+                get {
+                    try {
+                        return ((string)(this[this.tableIndebtednessReport.TenKhachHangColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TenKhachHang\' in table \'IndebtednessReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIndebtednessReport.TenKhachHangColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DiaChi {
+                get {
+                    try {
+                        return ((string)(this[this.tableIndebtednessReport.DiaChiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DiaChi\' in table \'IndebtednessReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIndebtednessReport.DiaChiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SDT {
+                get {
+                    return ((string)(this[this.tableIndebtednessReport.SDTColumn]));
+                }
+                set {
+                    this[this.tableIndebtednessReport.SDTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Email {
+                get {
+                    try {
+                        return ((string)(this[this.tableIndebtednessReport.EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'IndebtednessReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIndebtednessReport.EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SoTienNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableIndebtednessReport.SoTienNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SoTienNo\' in table \'IndebtednessReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIndebtednessReport.SoTienNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int MaKhachHang1 {
+                get {
+                    return ((int)(this[this.tableIndebtednessReport.MaKhachHang1Column]));
+                }
+                set {
+                    this[this.tableIndebtednessReport.MaKhachHang1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Thang {
+                get {
+                    return ((int)(this[this.tableIndebtednessReport.ThangColumn]));
+                }
+                set {
+                    this[this.tableIndebtednessReport.ThangColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Nam {
+                get {
+                    return ((int)(this[this.tableIndebtednessReport.NamColumn]));
+                }
+                set {
+                    this[this.tableIndebtednessReport.NamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int NoDau {
+                get {
+                    return ((int)(this[this.tableIndebtednessReport.NoDauColumn]));
+                }
+                set {
+                    this[this.tableIndebtednessReport.NoDauColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int NoCuoi {
+                get {
+                    return ((int)(this[this.tableIndebtednessReport.NoCuoiColumn]));
+                }
+                set {
+                    this[this.tableIndebtednessReport.NoCuoiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PhatSinh {
+                get {
+                    try {
+                        return ((int)(this[this.tableIndebtednessReport.PhatSinhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PhatSinh\' in table \'IndebtednessReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIndebtednessReport.PhatSinhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KHACHHANGRow KHACHHANGRow {
+                get {
+                    return ((KHACHHANGRow)(this.GetParentRow(this.Table.ParentRelations["FK_BAOCAOCONGNO_KHACHHANG1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_BAOCAOCONGNO_KHACHHANG1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTenKhachHangNull() {
+                return this.IsNull(this.tableIndebtednessReport.TenKhachHangColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTenKhachHangNull() {
+                this[this.tableIndebtednessReport.TenKhachHangColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDiaChiNull() {
+                return this.IsNull(this.tableIndebtednessReport.DiaChiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDiaChiNull() {
+                this[this.tableIndebtednessReport.DiaChiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEmailNull() {
+                return this.IsNull(this.tableIndebtednessReport.EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEmailNull() {
+                this[this.tableIndebtednessReport.EmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSoTienNoNull() {
+                return this.IsNull(this.tableIndebtednessReport.SoTienNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSoTienNoNull() {
+                this[this.tableIndebtednessReport.SoTienNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPhatSinhNull() {
+                return this.IsNull(this.tableIndebtednessReport.PhatSinhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPhatSinhNull() {
+                this[this.tableIndebtednessReport.PhatSinhColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -6880,6 +7606,40 @@ namespace BookStore.Model {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InventoryReportRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class IndebtednessReportRowChangeEvent : global::System.EventArgs {
+            
+            private IndebtednessReportRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportRowChangeEvent(IndebtednessReportRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public IndebtednessReportRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -11270,6 +12030,185 @@ SELECT MaSach, TenSach, MaTheLoai, MaNhaXuatBan, GiaBan, SoLuongTon, TacGia FROM
         public virtual QuanLySachDataSet.InventoryReportDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             QuanLySachDataSet.InventoryReportDataTable dataTable = new QuanLySachDataSet.InventoryReportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class IndebtednessReportTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public IndebtednessReportTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "IndebtednessReport";
+            tableMapping.ColumnMappings.Add("MaKhachHang", "MaKhachHang");
+            tableMapping.ColumnMappings.Add("TenKhachHang", "TenKhachHang");
+            tableMapping.ColumnMappings.Add("DiaChi", "DiaChi");
+            tableMapping.ColumnMappings.Add("SDT", "SDT");
+            tableMapping.ColumnMappings.Add("Email", "Email");
+            tableMapping.ColumnMappings.Add("SoTienNo", "SoTienNo");
+            tableMapping.ColumnMappings.Add("MaKhachHang1", "MaKhachHang1");
+            tableMapping.ColumnMappings.Add("Thang", "Thang");
+            tableMapping.ColumnMappings.Add("Nam", "Nam");
+            tableMapping.ColumnMappings.Add("NoDau", "NoDau");
+            tableMapping.ColumnMappings.Add("NoCuoi", "NoCuoi");
+            tableMapping.ColumnMappings.Add("PhatSinh", "PhatSinh");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::BookStore.Properties.Settings.Default.QuanLySachConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "Select *\r\nfrom KHACHHANG ,BAOCAOCONGNO\r\nwhere KHACHHANG .MaKhachHang=BAOCAOCONGNO" +
+                " .MaKhachHang";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(QuanLySachDataSet.IndebtednessReportDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual QuanLySachDataSet.IndebtednessReportDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            QuanLySachDataSet.IndebtednessReportDataTable dataTable = new QuanLySachDataSet.IndebtednessReportDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

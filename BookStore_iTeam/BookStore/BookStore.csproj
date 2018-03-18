@@ -182,6 +182,9 @@
     <Compile Include="View\ImportBook.xaml.cs">
       <DependentUpon>ImportBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\IndebtednessReport.xaml.cs">
+      <DependentUpon>IndebtednessReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Interface.xaml.cs">
       <DependentUpon>Interface.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InventoryReport.rdlc" />
+    <EmbeddedResource Include="View\IndebtednessReport.rdlc" />
     <EntityDeploy Include="Model\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -284,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ImportBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IndebtednessReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

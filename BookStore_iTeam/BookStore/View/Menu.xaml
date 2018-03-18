@@ -292,9 +292,9 @@
             
             <Expander Header="Báo cáo">
                 <StackPanel Margin="20,0,0,0">
-                    <Button Content="Báo cáo tồn" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" Command="{Binding InventoyrReportCommand}"/>
+                    <Button Content="Báo cáo tồn" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" Command="{Binding InventoryReportCommand}"/>
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
-                    <Button Content="Báo cáo công nợ" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB"/>
+                    <Button Content="Báo cáo công nợ" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" Command="{Binding IndebtednessReportCommand}"/>
                 </StackPanel>
             </Expander>
             <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />

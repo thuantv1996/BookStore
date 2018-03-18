@@ -18,8 +18,8 @@
         </Grid>
         <Grid Grid.Row="1">
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0">Thời gian báo cáo</TextBlock>
-            <DatePicker Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="Auto"/>
-            <Button Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Width="80" HorizontalAlignment="Right">Xem</Button>
+            <DatePicker Name="dtNgayThang" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="Auto"/>
+            <Button Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Width="80" HorizontalAlignment="Right" Click="Button_Click">Xem</Button>
         </Grid>
         <Grid Grid.Row="2">
             <WindowsFormsHost >
